@@ -1,0 +1,13 @@
+{
+  "python.languageServer": "Jedi",
+  "python.analysis.diagnosticSeverityOverrides": {
+    "reportMissingModuleSource": "none"
+  },
+  "python.analysis.extraPaths": [
+    "",
+    "/Users/christianmadden/.vscode/extensions/joedevivo.vscode-circuitpython-0.1.20-darwin-x64/stubs",
+    "/Users/christianmadden/Library/Application Support/Code/User/globalStorage/joedevivo.vscode-circuitpython/bundle/20230620/adafruit-circuitpython-bundle-py-20230620/lib"
+  ],
+  "circuitpython.board.version": "8.0.0-beta.5",
+  "python.linting.pylintEnabled": false
+}
