@@ -7,13 +7,14 @@ from adafruit_display_shapes.rect import Rect
 from adafruit_display_text import label
 from adafruit_macropad import MacroPad
 
-from zpad import button
+#from ctrlz import page
+#from ctrlz import button
 
 # Init #######################
 macropad = MacroPad()  # Set up MacroPad library and behavior
 macropad.display.auto_refresh = False
 macropad.pixels.auto_write = False
-macropad.pixels.brightness = 0.05
+macropad.pixels.brightness = 0.02
 macropad.keyboard.release_all()
 
 # Colors
@@ -24,6 +25,7 @@ NEGATIVE = 0xFF0000
 POWERUP = 0x800080
 WHITE = 0xFFFFFF
 
+
 # Modes
 mode = 'RIDE'
 
@@ -31,33 +33,30 @@ mode = 'RIDE'
 def get_screen_for_mode(mode):
   lines = []
   if mode == 'RIDE':
-    lines.append("Ride Mode            ")
-    lines.append("View+   Menu:   More:")
-    lines.append("SShot    HUD    Msgs:")
-    lines.append("PwrUp   RdOn!   Emot:")
-    lines.append("Left    UTurn   Right")
+    lines.append("Ride Mode      1 of 5")
+    lines.append("Esc     Up      Enter")
+    lines.append("Left    Down    Right")
+    lines.append("Dvcs    Grge    HUD")
+    lines.append("SShot   PwrUp   Grph")
   return lines
 
 ride_buttons = []
-ride_buttons.append({ 'color': ZWIFT_BLUE, 'key': None })
-ride_buttons.append({ 'color': ZWIFT_ORANGE, 'key': None })
-ride_buttons.append({ 'color': NEGATIVE, 'key': None })
 
-ride_buttons.append({ 'color': WHITE, 'key': macropad.Keycode.F10 })
-ride_buttons.append({ 'color': POSITIVE, 'key': macropad.Keycode.H })
-ride_buttons.append({ 'color': ZWIFT_BLUE, 'key': None })
+ride_buttons.append({ 'name': 'Back', 'shortname': 'Back', 'color': NEGATIVE, 'key': macropad.Keycode.ESCAPE })
+ride_buttons.append({ 'name': 'Up', 'shortname': 'Up', 'color': ZWIFT_ORANGE, 'key': macropad.Keycode.UP_ARROW })
+ride_buttons.append({ 'name': 'Enter', 'shortname': 'Enter', 'color': POSITIVE, 'key': macropad.Keycode.ENTER })
 
-ride_buttons.append({ 'color': POWERUP, 'key': macropad.Keycode.SPACEBAR })
-ride_buttons.append({ 'color': ZWIFT_BLUE, 'key': macropad.Keycode.F3 })
-ride_buttons.append({ 'color': ZWIFT_BLUE, 'key': None })
+ride_buttons.append({ 'name': 'Left', 'shortname': 'Left', 'color': ZWIFT_ORANGE, 'key': macropad.Keycode.LEFT_ARROW })
+ride_buttons.append({ 'name': 'Down', 'shortname': 'Down', 'color': ZWIFT_ORANGE, 'key': macropad.Keycode.DOWN_ARROW })
+ride_buttons.append({ 'name': 'Right', 'shortname': 'Right', 'color': ZWIFT_ORANGE, 'key': macropad.Keycode.RIGHT_ARROW })
 
-ride_buttons.append({ 'color': ZWIFT_ORANGE, 'key': macropad.Keycode.LEFT_ARROW })
-ride_buttons.append({ 'color': ZWIFT_ORANGE, 'key': macropad.Keycode.DOWN_ARROW })
-ride_buttons.append({ 'color': ZWIFT_ORANGE, 'key': macropad.Keycode.RIGHT_ARROW })
+ride_buttons.append({ 'name': 'Devices', 'shortname': 'Dvcs', 'color': ZWIFT_ORANGE, 'key': macropad.Keycode.A })
+ride_buttons.append( 'name': 'Garage', 'shortname': 'Grge', 'color': ZWIFT_ORANGE, 'key': macropad.Keycode.T })
+ride_buttons.append({ 'name': 'HUD', 'shortname': 'HUD', 'color': ZWIFT_BLUE, 'key':  macropad.Keycode.H })
 
-
-
-
+ride_buttons.append({ 'name': 'Screenshot', 'shortname': 'SShot', 'color': WHITE, 'key': macropad.Keycode.F10 })
+ride_buttons.append({ 'name': 'Powerup', 'shortname': 'PwrUp', 'color': POWERUP, 'key': macropad.Keycode.SPACEBAR })
+ride_buttons.append({ 'name': 'Graph', 'shortname': 'Grph', 'color': ZWIFT_BLUE, 'key': macropad.Keycode.G })
 
 # Update screen for mode
 text_lines = macropad.display_text()
@@ -76,7 +75,6 @@ while True:
   key_event = macropad.keys.events.get()
   if key_event:
     if key_event.pressed:
-      print(key_event.key_number)
       macropad.keyboard.send(ride_buttons[key_event.key_number]['key'])
 
 """
