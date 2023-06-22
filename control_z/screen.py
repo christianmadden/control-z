@@ -1,5 +1,5 @@
 
-from ctrlz import mode
+from control_z import mode
 
 def get_lines_for_mode(mode):
   lines = []
@@ -7,7 +7,7 @@ def get_lines_for_mode(mode):
   for action in mode['actions']:
     labels.append(pad_action_label(action['displayname']))
   title = pad_title(f"{mode['displayname']} ")
-  lines.append(f"{title} {mode['page']} of 6")
+  lines.append(f"{title} {mode['index'] + 1} of 6")
   lines.append(f"{labels[0]}{labels[1]}{labels[2]}")
   lines.append(f"{labels[3]}{labels[4]}{labels[5]}")
   lines.append(f"{labels[6]}{labels[7]}{labels[8]}")
@@ -18,4 +18,4 @@ def pad_action_label(label):
   return f"{label: <7}"
 
 def pad_title(title):
-  return f"{title:*<14}"
+  return f"{title:-<14}"

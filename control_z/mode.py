@@ -6,24 +6,30 @@ from adafruit_display_shapes.rect import Rect
 from adafruit_display_text import label
 from adafruit_macropad import MacroPad
 
-from ctrlz import action
+from control_z import action
 
 def get_mode_by_name(name):
   for mode in modes:
     if mode['name'] == name:
       return mode
     
+def get_mode_by_index(i):
+  return modes[i]
+
+def get_mode_name_by_index(i):
+  return modes[i]['name']
+    
 def add_actions_to_mode(mode, action_names):
   for name in action_names:
     mode['actions'].append(action.get_action_by_name(name))
 
 modes = []
-modes.append({ 'name': 'ride', 'displayname': 'Ride', 'page': '1', 'actions': [] })
-modes.append({ 'name': 'workout', 'displayname': 'Workout', 'page': '2', 'actions': [] })
-modes.append({ 'name': 'race', 'displayname': 'Race', 'page': '3', 'actions': [] })
-modes.append({ 'name': 'navigation', 'displayname': 'Navigation', 'page': '4','actions': [] })
-modes.append({ 'name': 'emotes', 'displayname': 'Emotes', 'page': '5', 'actions': [] })
-modes.append({ 'name': 'camera', 'displayname': 'Camera', 'page': '6', 'actions': [] })
+modes.append({ 'name': 'ride', 'displayname': 'Ride', 'index': 0, 'actions': [] })
+modes.append({ 'name': 'workout', 'displayname': 'Workout', 'index': 1, 'actions': [] })
+modes.append({ 'name': 'race', 'displayname': 'Race', 'index': 2, 'actions': [] })
+modes.append({ 'name': 'navigation', 'displayname': 'Navigation', 'index': 3,'actions': [] })
+modes.append({ 'name': 'emotes', 'displayname': 'Emotes', 'index': 4, 'actions': [] })
+modes.append({ 'name': 'camera', 'displayname': 'Camera', 'index': 5, 'actions': [] })
 
 # TODO: Simplify this, just do it all inline above
 
@@ -42,14 +48,14 @@ add_actions_to_mode(workout, ['back', 'up', 'enter',
 race = get_mode_by_name('race')
 add_actions_to_mode(race, ['back', 'up', 'enter',
                              'left', 'down', 'right',
-                             'blank', 'blank', 'blank',
-                             'elbow', 'powerup', 'rear'])
+                             'elbow', 'rear', 'screenshot',
+                             'powerup', 'powerup', 'powerup'])
 
 navigation = get_mode_by_name('navigation')
-add_actions_to_mode(navigation, ['back', 'up', 'enter',
-                             'left', 'down', 'right',
-                             'blank', 'blank', 'blank',
-                             'blank', 'blank', 'blank'])
+add_actions_to_mode(navigation, ['pair', 'garage', 'blank',
+                             'back', 'up', 'enter',
+                             'left', 'enter', 'right',
+                             'back', 'down', 'enter'])
 
 emotes = get_mode_by_name('emotes')
 add_actions_to_mode(emotes, ['elbow', 'wave', 'ride_on',
@@ -60,6 +66,6 @@ add_actions_to_mode(emotes, ['elbow', 'wave', 'ride_on',
 camera = get_mode_by_name('camera')
 add_actions_to_mode(camera, ['third', 'third_short', 'first',
                              'angled', 'chase', 'rear',
-                             'sideline', 'helicopter', 'blank',
+                             'sideline', 'helicopter', 'drone',
                              'blank', 'blank', 'blank'])
 

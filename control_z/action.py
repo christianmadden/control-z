@@ -51,8 +51,12 @@ actions.append({ 'name': 'first', 'displayname': 'First', 'color': ZWIFT_BLUE, '
 actions.append({ 'name': 'angled', 'displayname': 'Angled', 'color': ZWIFT_BLUE, 'keys':[MacroPad.Keycode.FOUR] })
 actions.append({ 'name': 'chase', 'displayname': 'Chase', 'color': ZWIFT_BLUE, 'keys':[MacroPad.Keycode.FIVE] })
 actions.append({ 'name': 'rear', 'displayname': 'Rear', 'color': ZWIFT_BLUE, 'keys':[MacroPad.Keycode.SIX] })
-actions.append({ 'name': 'sideline', 'displayname': 'Sideline', 'color': ZWIFT_BLUE, 'keys':[MacroPad.Keycode.SEVEN] })
+actions.append({ 'name': 'sideline', 'displayname': 'Sideln', 'color': ZWIFT_BLUE, 'keys':[MacroPad.Keycode.SEVEN] })
 actions.append({ 'name': 'helicopter', 'displayname': 'Heli', 'color': ZWIFT_BLUE, 'keys':[MacroPad.Keycode.EIGHT] })
+actions.append({ 'name': 'drone', 'displayname': 'Drone', 'color': ZWIFT_BLUE, 'keys':[MacroPad.Keycode.ZERO] })
+actions.append({ 'name': 'drone_zoom_in', 'displayname': 'Zoom+', 'color': POSITIVE, 'keys':[MacroPad.Keycode.EQUALS] })
+actions.append({ 'name': 'drone_zoom_out', 'displayname': 'Zoom-', 'color': NEGATIVE, 'keys':[MacroPad.Keycode.MINUS] })
+actions.append({ 'name': 'drone_rotate', 'displayname': 'Rotate', 'color': WARN, 'keys':[MacroPad.Keycode.RIGHT_ARROW] })
 
 # Emotes
 actions.append({ 'name': 'elbow', 'displayname': 'Elbow', 'color': ZWIFT_ORANGE, 'keys':[MacroPad.Keycode.F1] })
@@ -65,8 +69,7 @@ actions.append({ 'name': 'toast', 'displayname': 'Toast', 'color': ZWIFT_ORANGE,
 actions.append({ 'name': 'bell', 'displayname': 'Bell', 'color': ZWIFT_ORANGE, 'keys':[MacroPad.Keycode.F8] })
 
 # Blank
-actions.append({ 'name': 'blank', 'displayname': 'Blank', 'color': DISABLED, 'keys': [] })
-
+actions.append({ 'name': 'blank', 'displayname': ' ', 'color': DISABLED, 'keys': [] })
 
 def get_action_by_name(name):
   for action in actions:

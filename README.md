@@ -1,1 +1,2 @@
-# CTRL-Z: Control Zwift
+# Control Z: Macropad Zwift Control
+
