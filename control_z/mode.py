@@ -41,7 +41,7 @@ add_actions_to_mode(ride, ['back', 'up', 'enter',
 
 workout = get_mode_by_name('workout')
 add_actions_to_mode(workout, ['back', 'up', 'enter',
-                             'left', 'down', 'right',
+                             'training', 'down', 'right',
                              'bias_up', 'skip', 'incline_up',
                              'bias_down', 'erg', 'incline_down'])
 

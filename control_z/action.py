@@ -36,7 +36,7 @@ actions.append({ 'name': 'uturn', 'displayname': 'UTurn', 'color': ZWIFT_BLUE, '
 actions.append({ 'name': 'promo', 'displayname': 'Promo', 'color': WHITE, 'keys': [MacroPad.Keycode.P ] })
 
 # Workouts
-actions.append({ 'name': 'training', 'displayname': 'Train', 'color': ZWIFT_BLUE, 'keys':[MacroPad.Keycode.E] })
+actions.append({ 'name': 'training', 'displayname': 'Train', 'color': ZWIFT_ORANGE, 'keys':[MacroPad.Keycode.E] })
 actions.append({ 'name': 'skip', 'displayname': 'Skip', 'color': WARN, 'keys':[MacroPad.Keycode.TAB] })
 actions.append({ 'name': 'bias_up', 'displayname': 'Bias+', 'color': POSITIVE, 'keys':[MacroPad.Keycode.PAGE_UP] })
 actions.append({ 'name': 'bias_down', 'displayname': 'Bias-', 'color': NEGATIVE, 'keys':[MacroPad.Keycode.PAGE_DOWN] })
