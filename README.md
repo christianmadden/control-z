@@ -1,2 +1,1 @@
-# ctrl-z
- CTRL-Z: Control Zwift
+# CTRL-Z: Control Zwift
